@@ -1,12 +1,12 @@
 <?php
 
-namespace :namespace_vendor\:namespace_tool_name;
+namespace Opscale\NovaWidgets;
 
-use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use :namespace_vendor\:namespace_tool_name\Http\Middleware\Authorize;
+use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
+use Opscale\NovaWidgets\Http\Middleware\Authorize;
 
 class ToolServiceProvider extends ServiceProvider
 {
@@ -39,13 +39,13 @@ class ToolServiceProvider extends ServiceProvider
         }
 
         Route::middleware(['nova', Authorize::class])
-                ->prefix('nova-vendor/:vendor/:package_name')
+                ->prefix('nova-vendor/opscale-co/nova-widgets')
                 ->group(__DIR__.'/../routes/api.php');
     }
-                
+
     protected function loadConfigs()
     {
-        $filename = ':package_name.php';
+        $filename = 'nova-widgets.php';
         $this->publishes([
             __DIR__."/../config/$filename" => config_path($filename),
         ]);

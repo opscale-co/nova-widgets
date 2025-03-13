@@ -7,4 +7,4 @@ mix
   .js('resources/js/tool.js', 'js')
   .vue({ version: 3 })
   .css('resources/css/tool.css', 'css')
-  .nova(':vendor/:package_name')
+  .nova('opscale-co/nova-widgets')

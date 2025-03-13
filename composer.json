@@ -1,6 +1,6 @@
 {
-    "name": ":vendor/:package_name",
-    "description": ":package_description",
+    "name": "opscale-co/nova-widgets",
+    "description": "Insert HTML Widgets in the body of your Nova app",
     "keywords": [
         "laravel",
         "nova",
@@ -14,12 +14,12 @@
             "url": "https://nova.laravel.com"
         }
     ],
-    "homepage": "https://github.com/:vendor/:package_name",
+    "homepage": "https://github.com/opscale-co/nova-widgets",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
+            "name": "Opscale",
+            "email": "development@opscale.co",
             "role": "Developer"
         }
     ],
@@ -29,18 +29,18 @@
     },
     "autoload": {
         "psr-4": {
-            ":namespace_vendor\\:namespace_tool_name\\": "src/"
+            "Opscale\\NovaWidgets\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            ":namespace_vendor\\:namespace_tool_name\\Tests\\": "tests"
+            "Opscale\\NovaWidgets\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                ":namespace_vendor\\:namespace_tool_name\\ToolServiceProvider"
+                "Opscale\\NovaWidgets\\ToolServiceProvider"
             ]
         }
     },
