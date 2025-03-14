@@ -34,8 +34,8 @@ jobs:
     - name: Run tests
       run: ./vendor/bin/phpunit tests
 
-    - name: Publish to Packagist
-      uses: mnavarrocarter/packagist-update@v1.0
-      with:
-        username: ${{ secrets.PACKAGIST_USERNAME }}
-        api_token: ${{ secrets.PACKAGIST_TOKEN }}
+    - name: Publish to Packagist (curl)
+      run: |
+        curl -XPOST -H'content-type:application/json' \
+        "https://packagist.org/api/update-package?username=${{ secrets.PACKAGIST_USERNAME }}&apiToken=${{ secrets.PACKAGIST_TOKEN }}" \
+        -d'{"repository":{"url":"https://github.com/${{ github.repositoryUrl }}"}}'
