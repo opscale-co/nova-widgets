@@ -3,9 +3,10 @@
 namespace Opscale\NovaWidgets;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Menu\MenuSection;
+use Laravel\Nova\Menu\MenuItem;
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool as NovaTool;
+use Opscale\NovaWidgets\Nova\Widget;
 
 class Tool extends NovaTool
 {
@@ -17,8 +18,6 @@ class Tool extends NovaTool
 
     public function menu(Request $request)
     {
-        return MenuSection::make('NovaWidgets')
-            ->path('nova-widgets')
-            ->icon('server');
+        return MenuItem::resource(Widget::class);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Opscale\NovaWidgets\Http\Controllers\ToolController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('test-case', \Opscale\NovaWidgets\Http\Controllers\ToolController::class . '@index');
+Route::get('test-case', [ToolController::class, 'test']);
+Route::get('widgets', [ToolController::class, 'index']);
+Route::get('widgets/{slug}', [ToolController::class, 'show']);

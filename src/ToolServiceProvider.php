@@ -12,56 +12,46 @@ class ToolServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        /*Nova::serving(function (ServingNova $event) {
+        $this->registerRoutes();
+
+        if ($this->app->runningInConsole()) {
+            $this->registerMigrations();
+        }
+
+        Nova::serving(function (ServingNova $event) {
             $this->registerResources();
-            $this->registerRoutes();
-        });*/
+        });
     }
 
     public function register()
     {
-        /*$this->loadConfigs();
-        if ($this->app->runningInConsole()) {
-            $this->loadCommands();
-            $this->loadMigrations();
-        }*/
+        //
     }
 
-    /*protected function loadResources()
+    protected function registerResources()
     {
-        Nova::resources([]);
+        Nova::resources([
+            \Opscale\NovaWidgets\Nova\Widget::class,
+        ]);
     }
 
-    protected function loadRoutes()
+    protected function registerRoutes()
     {
         if ($this->app->routesAreCached()) {
             return;
         }
 
         Route::middleware(['nova', Authorize::class])
-                ->prefix('nova-vendor/opscale-co/nova-widgets')
-                ->group(__DIR__.'/../routes/api.php');
+            ->prefix('nova-vendor/opscale-co/nova-widgets')
+            ->group(__DIR__ . '/../routes/api.php');
     }
 
-    protected function loadConfigs()
+    protected function registerMigrations()
     {
-        $filename = 'nova-widgets.php';
-        $this->publishes([
-            __DIR__."/../config/$filename" => config_path($filename),
-        ]);
-    }
-
-    protected function loadCommands()
-    {
-        $this->commands([]);
-    }
-
-    protected function loadMigrations()
-    {
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
         $this->publishesMigrations([
-            __DIR__.'/../database/migrations' => database_path('migrations'),
+            __DIR__ . '/../database/migrations' => database_path('migrations'),
         ]);
-    }*/
+    }
 }
