@@ -27,9 +27,12 @@ jobs:
 
     - name: Install Node dependencies
       run: npm install
+
+    - name: Generate production code
+      run: npm run prod
         
     - name: Run tests
-      run: php artisan test
+      run: ./vendor/bin/phpunit tests
 
     - name: Publish to Packagist
       uses: mnavarrocarter/packagist-update@v1.0

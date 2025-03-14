@@ -53,6 +53,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require-dev": {
+        "laravel/nova": "^5.4",
         "laravel/nova-devtool": "^1.0",
         "phpunit/phpunit": "^10.5",
         "tightenco/duster": "^2.7"
