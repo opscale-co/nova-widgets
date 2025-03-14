@@ -12,14 +12,14 @@ class ToolServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->registerRoutes();
+        $this->loadRoutes();
 
         if ($this->app->runningInConsole()) {
-            $this->registerMigrations();
+            $this->loadMigrations();
         }
 
         Nova::serving(function (ServingNova $event) {
-            $this->registerResources();
+            $this->loadResources();
         });
     }
 
@@ -28,14 +28,14 @@ class ToolServiceProvider extends ServiceProvider
         //
     }
 
-    protected function registerResources()
+    protected function loadResources()
     {
         Nova::resources([
             \Opscale\NovaWidgets\Nova\Widget::class,
         ]);
     }
 
-    protected function registerRoutes()
+    protected function loadRoutes()
     {
         if ($this->app->routesAreCached()) {
             return;
@@ -46,7 +46,7 @@ class ToolServiceProvider extends ServiceProvider
             ->group(__DIR__ . '/../routes/api.php');
     }
 
-    protected function registerMigrations()
+    protected function loadMigrations()
     {
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
 
