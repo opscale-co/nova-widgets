@@ -4,6 +4,7 @@ namespace Opscale\NovaWidgets\Nova;
 
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Code;
+use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
@@ -44,10 +45,18 @@ class Widget extends Resource
 
             Slug::make(_('Slug'), 'slug')
                 ->from('name')
-                ->rules(Model::rules('slug')),
+                ->creationRules(Model::rules('slug')),
 
             Textarea::make(_('Description'), 'description')
                 ->alwaysShow(),
+
+            Select::make(_('Location'), 'location')
+                ->options([
+                    'head' => _('Head'),
+                    'body' => _('Body'),
+                ])
+                ->displayUsingLabels()
+                ->rules(Model::rules('location')),
 
             Code::make(_('Code'), 'html_code')
                 ->language('htmlmixed')

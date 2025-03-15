@@ -9,7 +9,10 @@
     "prod": "npm run production",
     "production": "mix --production",
     "nova:install": "npm --prefix='../../vendor/laravel/nova' ci",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint": "vendor/bin/duster lint --dirty && npx eslint",
+    "fix": "vendor/bin/duster fix && npx eslint --fix",
+    "test": "vendor/bin/phpunit tests"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.4.0",
