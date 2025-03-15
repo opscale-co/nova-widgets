@@ -1,7 +1,7 @@
 {
     "name": "opscale-co/nova-widgets",
     "description": "Insert HTML Widgets in the body of your Nova app",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "keywords": [
         "laravel",
         "nova",

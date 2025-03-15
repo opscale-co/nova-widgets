@@ -15,6 +15,7 @@ class Widget extends Model
         $rules = [
             'name' => ['required', 'max:50'],
             'slug' => ['required', 'max:25', 'unique:widgets,slug'],
+            'location' => ['required', 'in:head,body'],
             'html_code' => ['required'],
         ];
 
