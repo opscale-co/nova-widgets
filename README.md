@@ -1,7 +1,5 @@
 ## Support us
 
-Support Opscale
-
 At Opscale, we’re passionate about contributing to the open-source community by providing solutions that help businesses scale efficiently. If you’ve found our tools helpful, here are a few ways you can show your support:
 
 ⭐ **Star this repository** to help others discover our work and be part of our growing community. Every star makes a difference!
