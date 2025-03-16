@@ -18,14 +18,16 @@ Thanks for helping Opscale continue to scale! 🚀
 
 ## Description
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/opscale-co/nova-widgets.svg?style=flat-square)](https://packagist.org/packages/opscale-co/nova-widgets)
+Insert HTML widgets in the head or body of your Nova app.
 
-Insert HTML Widgets in the head or body of your Nova app
+In some cases, you may need to add a floating chat from Zendesk, tracking codes from Google Analytics, DDoS protection from Cloudflare, etc., to your app. This package will help you manage these easily!
 
 ![Widget creation](https://raw.githubusercontent.com/opscale-co/nova-widgets/refs/heads/main/screenshots/widget-creation.png)
 ![Widget demo](https://raw.githubusercontent.com/opscale-co/nova-widgets/refs/heads/main/screenshots/widget-demo.png)
 
 ## Installation
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/opscale-co/nova-widgets.svg?style=flat-square)](https://packagist.org/packages/opscale-co/nova-widgets)
 
 You can install the package in to a Laravel app that uses [Nova](https://nova.laravel.com) via composer:
 
