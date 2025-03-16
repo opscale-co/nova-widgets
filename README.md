@@ -23,7 +23,7 @@ Thanks for helping Opscale continue to scale! 🚀
 Insert HTML Widgets in the head or body of your Nova app
 
 ![Widget creation](https://raw.githubusercontent.com/opscale-co/nova-widgets/refs/heads/main/screenshots/widget-creation.png)
-![Widget demo]([./pictures/image.png](https://raw.githubusercontent.com/opscale-co/nova-widgets/refs/heads/main/screenshots/widget-demo.png))
+![Widget demo](https://raw.githubusercontent.com/opscale-co/nova-widgets/refs/heads/main/screenshots/widget-demo.png)
 
 ## Installation
 
