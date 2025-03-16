@@ -16,15 +16,14 @@ At Opscale, we’re passionate about contributing to the open-source community b
 
 Thanks for helping Opscale continue to scale! 🚀
 
-
-
 # Description
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/opscale-co/nova-widgets.svg?style=flat-square)](https://packagist.org/packages/opscale-co/nova-widgets)
 
-Insert HTML Widgets in the body of your Nova app
+Insert HTML Widgets in the head or body of your Nova app
 
-Add a screenshot of the tool here.
+![Widget creation](https://raw.githubusercontent.com/opscale-co/nova-wisgets/refs/heads/main/screenshots/widget-creation.png)
+![Widget demo]([./pictures/image.png](https://raw.githubusercontent.com/opscale-co/nova-wisgets/refs/heads/main/screenshots/widget-demo.png))
 
 ## Installation
 
@@ -36,7 +35,7 @@ composer require opscale-co/nova-widgets
 
 ```
 
-Next up, you must register the tool with Nova using **Singleton pattern**. This is typically done in the `tools` method of the `NovaServiceProvider`.
+Next up, you must register the tool with Nova. This is typically done in the `tools` method of the `NovaServiceProvider`.
 
 ```php
 
@@ -54,13 +53,13 @@ public function tools()
 
 ## Usage
 
-Click on the "nova-widgets" menu item in your Nova app to see the tool provided by this package.
+You will see a “Widgets” item in your menu by default. You can add new widgets using this CRUD.
 
 ## Testing
 
 ``` bash
 
-composer test
+npm run test
 
 ```
 
