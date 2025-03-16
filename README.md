@@ -16,7 +16,7 @@ At Opscale, we’re passionate about contributing to the open-source community b
 
 Thanks for helping Opscale continue to scale! 🚀
 
-# Description
+## Description
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/opscale-co/nova-widgets.svg?style=flat-square)](https://packagist.org/packages/opscale-co/nova-widgets)
 
