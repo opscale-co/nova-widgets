@@ -2,56 +2,31 @@
 
 namespace Opscale\NovaWidgets;
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\ServiceProvider;
-use Laravel\Nova\Events\ServingNova;
-use Laravel\Nova\Nova;
-use Opscale\NovaWidgets\Http\Middleware\Authorize;
+use Opscale\NovaWidgets\Configuration\NovaPackage;
+use Opscale\NovaWidgets\Configuration\NovaPackageServiceProvider;
+use Opscale\NovaWidgets\Nova\Widget;
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
+use Spatie\LaravelPackageTools\Package;
 
-class ToolServiceProvider extends ServiceProvider
+class ToolServiceProvider extends NovaPackageServiceProvider
 {
-    public function boot()
+    public function newPackage(): Package
     {
-        $this->loadRoutes();
-
-        if ($this->app->runningInConsole()) {
-            $this->loadMigrations();
-        }
-
-        Nova::serving(function (ServingNova $event) {
-            $this->loadResources();
-        });
+        return new NovaPackage;
     }
 
-    public function register()
+    public function configurePackage(Package $package): void
     {
-        //
-    }
-
-    protected function loadResources()
-    {
-        Nova::resources([
-            \Opscale\NovaWidgets\Nova\Widget::class,
-        ]);
-    }
-
-    protected function loadRoutes()
-    {
-        if ($this->app->routesAreCached()) {
-            return;
-        }
-
-        Route::middleware(['nova', Authorize::class])
-            ->prefix('nova-vendor/opscale-co/nova-widgets')
-            ->group(__DIR__ . '/../routes/api.php');
-    }
-
-    protected function loadMigrations()
-    {
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-
-        $this->publishesMigrations([
-            __DIR__ . '/../database/migrations' => database_path('migrations'),
-        ]);
+        $package
+            ->name('nova-widgets')
+            ->discoversMigrations()
+            ->runsMigrations()
+            ->hasRoutes(['api'])
+            ->hasResources([Widget::class])
+            ->hasInstallCommand(function (InstallCommand $command) {
+                $command
+                    ->askToRunMigrations()
+                    ->askToStarRepoOnGitHub('opscale-co/nova-widgets');
+            });
     }
 }

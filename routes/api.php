@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Opscale\NovaWidgets\Http\Controllers\ToolController;
+use Opscale\NovaWidgets\Http\Middleware\Authorize;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +16,10 @@ use Opscale\NovaWidgets\Http\Controllers\ToolController;
 */
 
 Route::get('test-case', [ToolController::class, 'test']);
-Route::get('widgets', [ToolController::class, 'index']);
-Route::get('widgets/{slug}', [ToolController::class, 'show']);
+
+Route::middleware(['nova', Authorize::class])
+    ->prefix('nova-vendor/opscale-co/nova-widgets')
+    ->group(function () {
+        Route::get('widgets', [ToolController::class, 'index']);
+        Route::get('widgets/{slug}', [ToolController::class, 'show']);
+    });
